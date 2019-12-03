@@ -43,7 +43,7 @@ module.exports = gql`
         editValues(valuesInput: EditValuesInput): Boolean
     }
     type Subscription {
-        valuesUpdated: ID
+        valuesUpdated: String
     }
 `
 

@@ -15,7 +15,7 @@ module.exports = {
                     mul: firstval*secondval,
                 }, (err, res) =>{
                     if(!err){
-                        pubsub.publish("VALUESUPDATE", {id: res.id})
+                        pubsub.publish("VALUESUPDATE", {valuesUpdated: "added-"+res.id})
                     }
                     return { postValues: !err } 
                 });
@@ -30,7 +30,7 @@ module.exports = {
             try{
                 Values.findByIdAndDelete(id, (err, res) =>{
                     if(!err){
-                        pubsub.publish("VALUESUPDATE", {id: id})
+                        pubsub.publish("VALUESUPDATE", {valuesUpdated: "deleted-"+id})
                     }
                     return { postValues: !err } 
                 });
@@ -50,7 +50,7 @@ module.exports = {
                     mul: firstval*secondval,
                 }, (err, res) =>{
                     if(!err){
-                        pubsub.publish("VALUESUPDATE", {id: id})
+                        pubsub.publish("VALUESUPDATE", {valuesUpdated: "updated-"+id})
                     }
                     return { postValues: !err } 
                 });
